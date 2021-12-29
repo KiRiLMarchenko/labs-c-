@@ -156,11 +156,11 @@ public class Program
 {
 	public static void Main()
 	{
-	    Human p1 = new Human("Петров", 2002, "Студент");
-	    Human p2 = new Human("Иванов", 2003, "Студент");
-	    Human p3 = new Human("Андреев", 2004, "Студент");
-	    Human p4 = new Human("Соколов", 1990, "Преподаватель");
-	    Human p5 = new Human("Денисов", 2001, "Студент");
+	    Human p1 = new Human("Сидоров", 2002, "Студент");
+	    Human p2 = new Human("Степанов", 2003, "Студент");
+	    Human p3 = new Human("Бондарь", 2004, "Студент");
+	    Human p4 = new Human("Сергеев", 1990, "Преподаватель");
+	    Human p5 = new Human("Петров", 2001, "Студент");
 		Human[] people = new Human[] {p1, p2, p3, p4, p5};
 	    Array.Sort(people, new AgeSort());
 	    // Сортировка по возрасту
