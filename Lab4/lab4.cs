@@ -35,6 +35,7 @@ public class MyClassB: MyClassA
 {
 	int d;
 	float[] array;
+	int[] array2 = new int[] {1, 2, 3, 4, 5};
 	
 	public MyClassB(int a, int b, int d): base(a, b)
 	{
@@ -71,6 +72,27 @@ public class MyClassB: MyClassA
 	{
 		get { return array; }
 	}
+	public int[] Array2
+	{
+		get { return array2; }
+	}
+	
+	public int this[int index]
+	{
+	    get => array2[index];
+	    set => array2[index] = value;
+	}
+}
+
+public class MyClassC<T>
+{
+    public static string message = "This is static";
+    private T[] arr = new T[3];
+    public T this[int index]
+	{
+	    get => arr[index];
+	    set => arr[index] = value;
+	}
 }
 
 
@@ -79,6 +101,31 @@ public class Program
 	public static void Main()
 	{
 		MyClassB ObjectB = new MyClassB(7);
-		foreach(float e in ObjectB.Array) Console.WriteLine(e);
+		for (int i=0; i < ObjectB.Array2.Length; i++)
+		{
+		    Console.WriteLine(ObjectB[i]);
+		}
+		MyClassC<string> str_obj = new MyClassC<string>();
+		MyClassC<int> int_obj = new MyClassC<int>();
+		
+		for (int i=0; i<3; i++)
+		{
+		    str_obj[i] = Convert.ToString(i) + " number";
+		}
+		for (int i=0; i<3; i++)
+		{
+		    int_obj[i] = i;
+		}
+		Console.WriteLine(MyClassC<int>.message);
+		Console.WriteLine("Массив строк");
+		for (int i=0; i<3; i++)
+		{
+		    Console.WriteLine(str_obj[i]);
+		}
+		Console.WriteLine("Массив чисел");
+		for (int i=0; i<3; i++)
+		{
+		    Console.WriteLine(int_obj[i]);
+		}
 	}
 }
